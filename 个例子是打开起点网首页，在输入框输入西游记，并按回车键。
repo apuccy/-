@@ -1,0 +1,22 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+import time
+ 
+ 
+# 打开一个Chrome浏览器
+options = Options()
+options.add_argument('--window-size=1000,700')
+options.add_argument('--disable-infobars')
+options.add_argument('--incognito')
+driver = webdriver.Chrome(chrome_options = options)
+# 请求起点网
+driver.get('https://www.qidian.com/')
+time.sleep(1)
+input = driver.find_element_by_xpath('//*[@id="s-box"]')
+input.send_keys('西游记')
+time.sleep(1)
+input.send_keys(Keys.ENTER)
+time.sleep(1)
+time.sleep(7)
+driver.quit()
